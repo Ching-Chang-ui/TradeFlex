@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeFlex - The Way to Trade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2);
+    }
+    header h1 {
+      font-size: 1.8em;
+      color: #ff4d4d;
+      margin: 0;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover { color: #ff4d4d; }
+    .hero {
+      background: linear-gradient(145deg, #1a1a1a, #111);
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3.5em;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 20px auto;
+      color: #ccc;
+    }
+    .hero .btn {
+      background-color: #ff4d4d;
+      color: #fff;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .offers {
+      background-color: #2a2a2a;
+      padding: 30px 20px;
+      color: #fff;
+      text-align: center;
+    }
+    .offers span { color: #00ff99; font-weight: bold; }
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: linear-gradient(to right, #1f1f1f, #141414);
+      padding: 50px 20px;
+    }
+    .stat-box {
+      background-color: #111;
+      margin: 10px;
+      padding: 20px;
+      width: 200px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.1);
+    }
+    .stat-box h2 {
+      color: #ff4d4d;
+      margin: 0;
+      font-size: 1.8em;
+    }
+    .stat-box p {
+      margin: 5px 0 0;
+      color: #ccc;
+      font-size: 0.95em;
+    }
+    .disclaimer {
+      background-color: #0d0d0d;
+      color: #aaa;
+      padding: 40px 30px;
+      font-size: 0.85em;
+      line-height: 1.6;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      background-color: #1a1a1a;
+      color: #777;
+    }
+    .footer-nav a {
+      margin: 5px 15px;
+      color: #777;
+      text-decoration: none;
+      font-size: 0.85em;
+    }
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #1a1a1a;
+      color: #777;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.85em;
+    }
+  
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 30px 20px;
+    }
+    .award {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      color: #ccc;
+      font-size: 0.95em;
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.1);
+    }
+
+
+    .upcoming-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 30px 20px;
+    }
+    .upcoming-card {
+      background-color: #111;
+      padding: 20px;
+      border-radius: 12px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 77, 77, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .upcoming-card:hover {
+      transform: translateY(-5px);
+    }
+    .upcoming-card h3 {
+      color: #00bfff;
+      margin-bottom: 10px;
+    }
+    .upcoming-card p {
+      color: #ccc;
+      font-size: 0.95em;
+    }
+
+
+    .funding-highlight {
+      padding: 50px 20px;
+      background-color: #111;
+    }
+    .funding-banner {
+      text-align: center;
+      background: radial-gradient(circle, #1a1a1a, #000);
+      padding: 50px 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+    .funding-banner h1 {
+      font-size: 4em;
+      color: #85b3ff;
+      margin: 0;
+    }
+    .funding-banner p {
+      color: #ccc;
+      margin: 10px 0 20px;
+      font-size: 1.2em;
+    }
+    .get-funded-btn {
+      background: #fff;
+      color: #000;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    .get-funded-btn:hover {
+      background: #ff4d4d;
+      color: white;
+    }
+    .trading-instruments {
+      background-color: #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+      border-radius: 12px;
+      flex-wrap: wrap;
+    }
+    .trading-instruments .text h2 {
+      font-size: 1.6em;
+      color: #fff;
+    }
+    .trading-instruments .text h2 span {
+      color: #a0ff00;
+    }
+    .trading-instruments .text p {
+      color: #ccc;
+    }
+    .see-list-btn {
+      background: #446eff;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+
+    .team-payout {
+      background: #0d0d0d;
+      color: #fff;
+      padding: 50px 20px;
+    }
+    .team-payout h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+    .team-payout h2 span {
+      color: #ff4d4d;
+    }
+    .logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .logos img {
+      height: 40px;
+      filter: grayscale(100%) brightness(1.5);
+    }
+    .payout-record {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    .payout-record h3 {
+      color: #85b3ff;
+      margin-bottom: 15px;
+    }
+    .payout-record p, .payout-record li {
+      color: #ccc;
+    }
+    .payout-record ul {
+      list-style: none;
+      padding: 0;
+    }
+    .payout-record li {
+      margin: 10px 0;
+    }
+
+
+    .dashboard-support-news {
+      background: #0d0d0d;
+      padding: 50px 20px;
+    }
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .info-cards .card {
+      padding: 25px;
+      border-radius: 10px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h3 {
+      margin-bottom: 15px;
+    }
+    .card p {
+      color: #ddd;
+    }
+    .card.light {
+      background: #f2f2f2;
+      color: #000;
+    }
+    .card.dark {
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .card.blue {
+      background: #003366;
+      color: #fff;
+    }
+    .btn, .btn-light {
+      margin-top: 15px;
+      padding: 10px 18px;
+      border-radius: 5px;
+      text-align: center;
+      display: inline-block;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .btn {
+      background: #003366;
+      color: white;
+    }
+    .btn-light {
+      background: #fff;
+      color: #000;
+    }
+
+
+  .maintenance-banner {
+    background: #ffcc00;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+  }
+
+  .languages-tech {
+    background: #0d0d0d;
+    padding: 40px 20px;
+  }
+
+  .languages-bar {
+    padding: 20px;
+    background: #1a1a1a;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .languages-bar .flags {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
+  .dark-card {
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+
+  .latest-news {
+    background: linear-gradient(to right, #0a0a0a, #1a1a1a);
+    padding: 40px 20px;
+    color: #fff;
+    border-radius: 12px;
+    margin: 40px 0;
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="maintenance-banner">
+    🚧 This site is currently under maintenance. Some features may not work as expected.
+  </div>
+
+
+  <header>
+    <h1>TradeFlex</h1>
+    <nav>
+      <a href="#">Programs</a>
+      <a href="#">Rules</a>
+      <a href="#">FAQ</a>
+      <a href="#">Company</a>
+      <a href="#">Affiliates</a>
+    </nav>
+  </header>
+
+  <section class="offers">
+    <h2>Celebrate Our New Launch Offers!</h2>
+    <p>Use code <span>LEAP</span> to save 30% or <span>LAUNCH</span> to get 20% off. Enjoy <span>90% profit split</span> and weekend holding.</p>
+  </section>
+
+  
+  <section class="funding-highlight">
+    <div class="funding-banner">
+      <h1>$1 Billion</h1>
+      <p>In virtual funding provided to traders worldwide</p>
+      <a href="#" class="get-funded-btn">Get funded</a>
+    </div>
+    <div class="trading-instruments">
+      <div class="text">
+        <h2><span>50+</span> Trading Instruments</h2>
+        <p>Currency pairs, indices, commodities, and cryptos you love</p>
+      </div>
+      <a href="#" class="see-list-btn">See full list</a>
+    </div>
+  </section>
+
+  <section class="hero">
+    <h1>The Way to Trade</h1>
+    <p>Instant execution, payouts, and support for those who break barriers. Built for traders who demand the best conditions.</p>
+    <a href="#" class="btn">Start Trading</a>
+  </section>
+
+  <section class="stats">
+    <div class="stat-box">
+      <h2>Est. 2022</h2>
+      <p>In India</p>
+    </div>
+    <div class="stat-box">
+      <h2>75,000+</h2>
+      <p>Traders</p>
+    </div>
+    <div class="stat-box">
+      <h2>190+</h2>
+      <p>Countries Supported</p>
+    </div>
+    <div class="stat-box">
+      <h2>10</h2>
+      <p>Industry Awards</p>
+    </div>
+  </section>
+
+  <section class="disclaimer">
+    <h3>Crypto prices & market data</h3>
+    <p>
+      All trading activities performed using our platform are executed in a simulated environment. We only offer virtual demo accounts, and any reference to “funded” means virtual funding only. 
+      Trading results in this environment do not reflect real trading outcomes.
+    </p>
+    <p>
+      The simulated environment is designed for educational and evaluation purposes. Funds provided are fictitious and cannot be withdrawn as real money.
+    </p>
+    <p>
+      Results shown are hypothetical and do not represent real conditions. Evaluation is designed to simulate realistic trading, including spreads and commissions.
+    </p>
+    <p>
+      For assistance, contact <strong>tradeflex.io@yahoo.com</strong> — powered by <strong>TradeFlex.io</strong>.
+    </p>
+  </section>
+
+  <div class="footer-nav">
+    <a href="#">Terms and conditions</a>
+    <a href="#">Website terms of use</a>
+    <a href="#">Disclaimers and legal</a>
+    <a href="#">Privacy policy</a>
+    <a href="#">AML policy</a>
+    <a href="#">Anti-bribery policy</a>
+  </div>
+
+  
+  <section class="upcoming">
+    <h2 style="text-align:center; color:#ff4d4d; margin-top:50px;">Upcoming Releases</h2>
+    <div class="upcoming-grid">
+      <div class="upcoming-card">
+        <h3>New crypto-first trading firm</h3>
+        <p>Launching a secure, crypto-focused trading platform tailored for digital asset professionals.</p>
+      </div>
+      <div class="upcoming-card">
+        <h3>Loyalty program upgrade</h3>
+        <p>New features, perks, and milestone rewards to appreciate our committed traders.</p>
+      </div>
+      <div class="upcoming-card">
+        <h3>Regulated broker</h3>
+        <p>Working toward becoming a fully regulated broker to enhance trust and transparency.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="dashboard-support-news">
+    <div class="info-cards">
+      <div class="card light">
+        <h3>Unlock Insights with Our Dashboard</h3>
+        <p>Transform your past performance into clear, actionable insights with an intuitive dashboard built for traders who want an edge.</p>
+        <a href="#" class="btn">Start learning</a>
+      </div>
+      <div class="card dark">
+        <h3>Enjoy Instant Support</h3>
+        <p>With an average response time of just <strong style="color:#00ff00">33 seconds</strong>, our customer-obsessed support team is here to assist you every step of the way via live chat or email.</p>
+        <a href="#" class="btn-light">Chat 24/7</a>
+      </div>
+      <div class="card blue">
+        <h3>Trade News</h3>
+        <p>Trade during most economic events on a regular account. For major events, choose swing trading.</p>
+        <a href="#" class="btn">Read more</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="languages-tech">
+    <div class="languages-bar dark-card">
+      <h3>Here to Help in 14 Languages</h3>
+      <div class="flags">
+        🇬🇧 🇮🇳 🇸🇦 🇫🇷 🇩🇪 🇪🇸 🇧🇷 🇮🇹 🇷🇺 🇯🇵 🇹🇷 🇻🇳 🇨🇳 🇺🇸
+      </div>
+    </div>
+    <div class="info-cards">
+      <div class="card dark">
+        <h3>Explore Community Payouts</h3>
+        <p>See how traders are rewarded in real time from our community.</p>
+        <a href="#" class="btn-light">View payouts</a>
+      </div>
+      <div class="card dark">
+        <h3>Tech You Can Trust</h3>
+        <p>Uptime <span style="font-size: 1.5em; color: #00ff00;"><strong>99.76%</strong></span> across all systems</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="latest-news dark-card">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+      <div style="flex: 1; padding: 20px; min-width: 300px;">
+        <h2>Latest in the News</h2>
+        <p>We are proud to sponsor one of the most exciting LaLiga matches between Villarreal and Real Madrid, introducing millions of fans to the advantages of our model.</p>
+      </div>
+      <div style="flex: 1; min-width: 300px; text-align: center;">
+        <video width="100%" autoplay muted loop style="border-radius: 12px; max-width: 500px;">
+          <source src="match-footage.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TradeFlex.io. All rights reserved.</p>
+  </footer>
+
+  
+  <section class="dashboard-support-news">
+    <div class="info-cards">
+      <div class="card light">
+        <h3>Unlock Insights with Our Dashboard</h3>
+        <p>Transform your past performance into clear, actionable insights with an intuitive dashboard built for traders who want an edge.</p>
+        <a href="#" class="btn">Start learning</a>
+      </div>
+      <div class="card dark">
+        <h3>Enjoy Instant Support</h3>
+        <p>With an average response time of just <strong style="color:#00ff00">33 seconds</strong>, our customer-obsessed support team is here to assist you every step of the way via live chat or email.</p>
+        <a href="#" class="btn-light">Chat 24/7</a>
+      </div>
+      <div class="card blue">
+        <h3>Trade News</h3>
+        <p>Trade during most economic events on a regular account. For major events, choose swing trading.</p>
+        <a href="#" class="btn">Read more</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="languages-tech">
+    <div class="languages-bar dark-card">
+      <h3>Here to Help in 14 Languages</h3>
+      <div class="flags">
+        🇬🇧 🇮🇳 🇸🇦 🇫🇷 🇩🇪 🇪🇸 🇧🇷 🇮🇹 🇷🇺 🇯🇵 🇹🇷 🇻🇳 🇨🇳 🇺🇸
+      </div>
+    </div>
+    <div class="info-cards">
+      <div class="card dark">
+        <h3>Explore Community Payouts</h3>
+        <p>See how traders are rewarded in real time from our community.</p>
+        <a href="#" class="btn-light">View payouts</a>
+      </div>
+      <div class="card dark">
+        <h3>Tech You Can Trust</h3>
+        <p>Uptime <span style="font-size: 1.5em; color: #00ff00;"><strong>99.76%</strong></span> across all systems</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="latest-news dark-card">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+      <div style="flex: 1; padding: 20px; min-width: 300px;">
+        <h2>Latest in the News</h2>
+        <p>We are proud to sponsor one of the most exciting LaLiga matches between Villarreal and Real Madrid, introducing millions of fans to the advantages of our model.</p>
+      </div>
+      <div style="flex: 1; min-width: 300px; text-align: center;">
+        <video width="100%" autoplay muted loop style="border-radius: 12px; max-width: 500px;">
+          <source src="match-footage.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TradeFlex.io. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+</html>

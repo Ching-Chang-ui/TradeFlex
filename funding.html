@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TradeFlex - Funding Evaluation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #010d1a, #002244);
+      color: white;
+    }
+    header {
+      background-color: #001529;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      color: #00cfff;
+      margin: 0;
+      font-size: 1.8em;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #00cfff;
+    }
+    .container {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .plan {
+      background: #022;
+      border: 1px solid #00cfff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+      transition: transform 0.3s;
+    }
+    .plan:hover {
+      transform: translateY(-5px);
+    }
+    .plan h3 {
+      margin: 0;
+      color: #00cfff;
+      font-size: 1.4em;
+    }
+    .plan p {
+      color: #ddd;
+      font-size: 0.95em;
+    }
+    .price {
+      font-size: 1.8em;
+      margin: 10px 0;
+      color: #00ffcc;
+    }
+    footer {
+      background: #001529;
+      padding: 20px;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9em;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TradeFlex.io</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="funding.html">Funding</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="rules.html">Rules</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Funding Evaluation Programs</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Instant Pro - $5K</h3>
+        <p>No evaluation, instant access</p>
+        <p class="price">$69</p>
+        <p>70% profit split<br>No max time<br>1:100 leverage</p>
+      </div>
+      <div class="plan">
+        <h3>One Step - $25K</h3>
+        <p>One evaluation phase</p>
+        <p class="price">$149</p>
+        <p>80% profit split<br>10% target<br>1:100 leverage</p>
+      </div>
+      <div class="plan">
+        <h3>Two Step - $50K</h3>
+        <p>Realistic challenge format</p>
+        <p class="price">$239</p>
+        <p>90% profit split<br>8% + 5% targets<br>Drawdown protection</p>
+      </div>
+      <div class="plan">
+        <h3>Three Step - $100K</h3>
+        <p>Highest reward plan</p>
+        <p class="price">$349</p>
+        <p>95% profit split<br>Scaling enabled<br>Weekend holding allowed</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 TradeFlex.io. All rights reserved. | Email: tradeflex.io@yahoo.com
+  </footer>
+</body>
+</html>
